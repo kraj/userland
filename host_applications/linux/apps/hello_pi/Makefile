@@ -24,6 +24,7 @@ apps: libs/ilclient/libilclient.a libs/vgfont/libvgfont.a libs/revision/librevis
 	$(MAKE) -C hello_teapot
 	$(MAKE) -C hello_fft
 	$(MAKE) -C hello_mmal_encode
+	$(MAKE) -C hello_wayland
 
 clean:
 	$(MAKE) -C libs/ilclient clean
@@ -43,4 +44,5 @@ clean:
 	$(MAKE) -C hello_teapot clean
 	$(MAKE) -C hello_fft clean
 	$(MAKE) -C hello_mmal_encode clean
+	$(MAKE) -C hello_wayland clean
 
