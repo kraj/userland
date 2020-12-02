@@ -225,6 +225,20 @@ typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYWAYLANDBUFFERWL) (EGLDisplay dpy, st
 
 #endif
 
+typedef void* EGLSyncKHR;
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLSETDAMAGEREGIONKHRPROC) (EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+typedef EGLint (EGLAPIENTRYP PFNEGLWAITSYNCKHRPROC) (EGLDisplay dpy, EGLSyncKHR sync, EGLint flags);
+#ifndef EGL_ANDROID_native_fence_sync
+#define EGL_ANDROID_native_fence_sync 1
+#define EGL_SYNC_NATIVE_FENCE_ANDROID     0x3144
+#define EGL_SYNC_NATIVE_FENCE_FD_ANDROID  0x3145
+#define EGL_SYNC_NATIVE_FENCE_SIGNALED_ANDROID 0x3146
+#define EGL_NO_NATIVE_FENCE_FD_ANDROID    -1
+typedef EGLint (EGLAPIENTRYP PFNEGLDUPNATIVEFENCEFDANDROIDPROC) (EGLDisplay dpy, EGLSyncKHR sync);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLint EGLAPIENTRY eglDupNativeFenceFDANDROID (EGLDisplay dpy, EGLSyncKHR sync);
+#endif
+#endif /* EGL_ANDROID_native_fence_sync */
 
 #ifdef __cplusplus
 }
